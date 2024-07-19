@@ -1,0 +1,31 @@
+.todo-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    margin: 15px 0;
+}
+.cardleft{
+    display: flex;
+    gap: 40px;
+}
+.editbox{
+    outline: none;
+}
+.cardright{
+    display: flex;
+    gap:30px
+}
+.cardright>button{
+  color: rgb(30, 30, 243);
+  font-size: 1.25rem;
+}
+.todo-card-cover
+{
+    /* background: rgb(216, 221, 233); */
+    background: cornflowerblue;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}

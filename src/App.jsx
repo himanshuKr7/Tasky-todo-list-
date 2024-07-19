@@ -57,16 +57,18 @@ const App = () => {
   });
 
   return (
-    <div className="m-10  bg-blue-100 p-10 rounded-lg min-h-screen">
-      <h1 className='text-center my-5 text-2xl '>Tasky Todo List</h1>
-      <AddTodo addTodo={handleaddTodo} />
-      <FilterTodo filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
-      <TodoList
+    <div className="">
+      <h1 className='title'>Tasky-Your Todo List !</h1>
+      <div className="todo-header">
+        <AddTodo addTodo={handleaddTodo} />
+        <FilterTodo filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
+        <TodoList
         todos={filteredTodos}
         handleComplete={handleComplete}
         deleteTodo={deleteTodo}
         editTodo={editTodo}
       />
+      </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 import TodoCard from './TodoCard';
+import "./TodoList.css"
 
 const TodoList = ({ todos, handleComplete, deleteTodo, editTodo }) => {
   return (
-    <div>
+    <div className='todo-container'>
+      <h2>To-Do</h2>
       {todos.map(todo => (
         <TodoCard 
           key={todo.id} 

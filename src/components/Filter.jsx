@@ -1,18 +1,23 @@
 import React from 'react'
-
-const Filter = ({}) => {
+import "./Filter.css";
+const Filter = ({filter,setFilter,search,setSearch}) => {
+  const handleFilterChange = (e) =>
+  {
+    setFilter(e.target.value);
+  }
+  const handleSearchChange = (e) =>
+  {
+    setSearch(e.target.value);
+  }
   return (
-    <div>
-       <div className='flex justify-around my-8'>
-        <select name="" id="status" className='py-1 px-2 rounded-md'>
-          <option value="All">All</option>
-          <option value="Incomplete">Incomplete</option>
-          <option value="Completed">Completed</option>
+       <div className='filter-div'>
+        <select name="" id="status" className='status' value={filter} onChange={handleFilterChange}>
+          <option value="all">All</option>
+          <option value="incomplete">Incomplete</option>
+          <option value="completed">Completed</option>
         </select>
-        <h2 className='font-bold text-2xl  text-blue-500'>Your Todos</h2>
-        <input type="text"  className='py-1 px-5 rounded-lg outline-none'  placeholder='Search Your Todo'/>
+        <input type="text"  className='tasksearch'  placeholder='Search Todo' value={search} onChange={handleSearchChange}/>
       </div>
-    </div>
   )
 }
 

@@ -1,0 +1,34 @@
+.filter-div{
+    width: 85%;
+    background: whitesmoke;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.status
+{
+    padding: 6px;
+    width: 30%;
+    outline: none;
+    border-radius:4px ;
+    -webkit-border-radius:4px ;
+    -moz-border-radius:4px ;
+    -ms-border-radius:4px ;
+    -o-border-radius:4px ;
+}
+.tasksearch{
+    width: 50%;
+    padding: 5px;
+    outline: none;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}

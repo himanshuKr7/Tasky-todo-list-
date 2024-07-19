@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { MdFileDownloadDone } from "react-icons/md";
+import "./TodoCard.css";
 
 const TodoCard = ({ todo, handleComplete, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false); 
@@ -12,34 +16,34 @@ const TodoCard = ({ todo, handleComplete, deleteTodo, editTodo }) => {
   };
 
   return (
-    <div className='todo bg-blue-300 mx-32 my-5 p-2 rounded-lg'>
-      <div className='flex justify-between px-10'>
-        <div className='flex items-center gap-10 mr-2'>
+    <div className='todo-card-cover'>
+      <div className='todo-card'>
+        <div className='cardleft'>
           <input 
             type="checkbox" 
-            className='mr-2' 
+            className='' 
             checked={todo.completed} 
             onChange={() => handleComplete(todo.id)} 
           />
-        </div>
-           {isEditing ? (
+            {isEditing ? (
             <input
               type="text"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              className='text-black text-xl w-[80%]'
+              className='editbox'
             />
           ) : (
             <h4 
               style={{ textDecoration: todo.completed ? 'line-through' : 'none' }} 
-              className='text-white text-2xl'
+              className='text-xl md:font-semibold text-slate-100'
             >
               {todo.title}
             </h4>
           )}
-        <div className='flex gap-10 ml-2'>
-          <button onClick={handleEdit}>{isEditing ? 'Save' : 'Edit'}</button> 
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+        </div>
+        <div className='cardright'>
+          <button className='ml-5' onClick={handleEdit}>{isEditing ? <MdFileDownloadDone /> : <FaEdit />}</button> 
+          <button onClick={() => deleteTodo(todo.id)}><MdDelete /></button>
         </div>
       </div>
     </div>
