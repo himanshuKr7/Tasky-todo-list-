@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddTodo from './components/AddTodo';
-import FilterTodo from './components/Filter';
+import Filter from './components/Filter';
 import TodoList from './components/TodoList';
 import './App.css';
 
@@ -10,42 +10,42 @@ const App = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    let todos = JSON.parse(localStorage.getItem("todos"));
-    setTodos(todos);
-  },[]);
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
 
-  const saveToLocal=() => {
-      localStorage.setItem("todos",JSON.stringify(todos))
+  const saveToLocal = (updatedTodos) => {
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   }
-  
-  const handleaddTodo = (todo) => {
-    setTodos([...todos, todo]);
-    saveToLocal();
+
+  const handleAddTodo = (todo) => {
+    const updatedTodos = [...todos, todo];
+    setTodos(updatedTodos);
+    saveToLocal(updatedTodos);
   };
 
   const handleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
-    saveToLocal();
+    setTodos(updatedTodos);
+    saveToLocal(updatedTodos);
   };
 
-  console.log(todos);
-
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-    saveToLocal();
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+    saveToLocal(updatedTodos);
   };
 
   const editTodo = (id, title) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, title } : todo
-      )
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, title } : todo
     );
-    saveToLocal();
+    setTodos(updatedTodos);
+    saveToLocal(updatedTodos);
   };
 
   const filteredTodos = todos.filter((todo) => {
@@ -60,14 +60,14 @@ const App = () => {
     <div className="">
       <h1 className='title'>Tasky-Your Todo List !</h1>
       <div className="todo-header">
-        <AddTodo addTodo={handleaddTodo} />
-        <FilterTodo filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
+        <AddTodo addTodo={handleAddTodo} />
+        <Filter filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
         <TodoList
-        todos={filteredTodos}
-        handleComplete={handleComplete}
-        deleteTodo={deleteTodo}
-        editTodo={editTodo}
-      />
+          todos={filteredTodos}
+          handleComplete={handleComplete}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+        />
       </div>
     </div>
   );
