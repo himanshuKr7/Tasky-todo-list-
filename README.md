@@ -13,6 +13,10 @@ Tasky is a simple and efficient Todo application built with React & Vite. It all
 - **Local Storage**: Todos are stored in the browser's local storage.
 - **User Authentication**: Temporal sign-in and sign-up options are available.
 
+## Video Demonstration
+
+
+
 ## File Structure
 
 ```
