@@ -15,7 +15,7 @@ Tasky is a simple and efficient Todo application built with React & Vite. It all
 
 ## Video Demonstration
 
-
+[Watch the video](public/DemoVideo.mp4)
 
 ## File Structure
 
