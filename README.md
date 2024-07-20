@@ -49,6 +49,8 @@ tasky/
 ├── tailwind.config.js
 └── vite.config.js
 
+```
+
 ## Getting Started
 
 ### Prerequisites
