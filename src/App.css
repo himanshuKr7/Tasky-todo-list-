@@ -13,7 +13,9 @@
 }
 .todo-header{
     width: 80%;
-    background: whitesmoke;
+    --tw-bg-opacity: 1;
+        background-color: rgb(241 245 249 / var(--tw-bg-opacity))
+        ;
     margin: 0 auto;
     padding:10px 40px;
     border-radius: 5px;

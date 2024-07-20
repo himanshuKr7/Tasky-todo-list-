@@ -2,23 +2,40 @@ import React, { useState, useEffect } from 'react';
 import AddTodo from './components/AddTodo';
 import Filter from './components/Filter';
 import TodoList from './components/TodoList';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import './App.css';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
+  const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
 
   useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      setIsLoggedIn(true);
     }
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      const storedTodos = localStorage.getItem(`todos_${user.username}`);
+      if (storedTodos) {
+        setTodos(JSON.parse(storedTodos));
+      }
+    }
+  }, [user]);
+
   const saveToLocal = (updatedTodos) => {
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
-  }
+    if (user) {
+      localStorage.setItem(`todos_${user.username}`, JSON.stringify(updatedTodos));
+    }
+  };
 
   const handleAddTodo = (todo) => {
     const updatedTodos = [...todos, todo];
@@ -56,19 +73,53 @@ const App = () => {
     return false;
   });
 
+  const handleLogin = (user) => {
+    setUser(user);
+    setIsLoggedIn(true);
+    localStorage.setItem("user", JSON.stringify(user));
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setIsLoggedIn(false);
+    localStorage.removeItem("user");
+  };
+
+  const toggleSignup = () => {
+    setIsSignup(!isSignup);
+  };
+
   return (
-    <div className="">
-      <h1 className='title'>Tasky-Your Todo List !</h1>
-      <div className="todo-header">
-        <AddTodo addTodo={handleAddTodo} />
-        <Filter filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
-        <TodoList
-          todos={filteredTodos}
-          handleComplete={handleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-        />
-      </div>
+    <div className="min-h-screen bg-gray-300 flex flex-col items-center">
+      {isLoggedIn ? (
+        <>
+          <h1 className='title'>Tasky! - Your Own Todo List, Hey : {user.username}</h1>
+          <div className="flex justify-center w-full mb-4">
+            <button
+              onClick={handleLogout}
+              className=" text-red-500 py-2 px-4  mb-5 rounded-md border border-red-500 hover:bg-red-400 hover:text-white transition-colors"
+            >
+              Logout
+            </button>
+          </div>
+          <div className="todo-header">
+            <AddTodo addTodo={handleAddTodo} />
+            <Filter filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
+            <TodoList
+              todos={filteredTodos}
+              handleComplete={handleComplete}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          </div>
+        </>
+      ) : (
+        isSignup ? (
+          <Signup toggleSignup={toggleSignup} />
+        ) : (
+          <Login handleLogin={handleLogin} toggleSignup={toggleSignup} />
+        )
+      )}
     </div>
   );
 };
