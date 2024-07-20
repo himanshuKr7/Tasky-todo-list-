@@ -1,6 +1,6 @@
 # Tasky - Your Todo List
 
-Tasky is a simple and efficient Todo application built with React. It allows users to manage their tasks with ease, providing functionalities such as adding, editing, deleting, filtering, and searching todos. The application also includes a temporal sign-in and sign-up option, with todos stored in local storage.
+Tasky is a simple and efficient Todo application built with React & Vite. It allows users to manage their tasks with ease, providing functionalities such as adding, editing, deleting, filtering, and searching todos. The application also includes a temporal sign-in and sign-up option, with todos stored in local storage.
 
 ## Features
 
@@ -65,7 +65,7 @@ Make sure you have the following installed on your system:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/tasky.git
+   https://github.com/himanshuKr7/Tasky-todo-list-.git
    ```
 
 2. Navigate to the project directory:
