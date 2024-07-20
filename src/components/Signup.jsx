@@ -58,7 +58,7 @@ const Signup = ({ toggleSignup }) => {
         </form>
         <button
           onClick={toggleSignup}
-          className="w-full mt-4 text-center text-white py-2 rounded-md bg-blue-300 hover:bg-blue-500 transition-colors"
+          className="w-full mt-4 text-center text-white py-2 rounded-md bg-blue-500 hover:bg-blue-500 transition-colors"
         >
           Sign In
         </button>
