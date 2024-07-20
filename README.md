@@ -97,13 +97,13 @@ To run the project locally:
 1. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    or
 
    ```bash
-   yarn start
+   yarn run dev
    ```
 
 2. Open your browser and navigate to:
