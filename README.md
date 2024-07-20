@@ -13,6 +13,10 @@ Tasky is a simple and efficient Todo application built with React & Vite. It all
 - **Local Storage**: Todos are stored in the browser's local storage.
 - **User Authentication**: Temporal sign-in and sign-up options are available.
 
+## Video Demonstration
+
+[Watch the video](public/DemoVideo.mp4)
+
 ## File Structure
 
 ```
@@ -93,13 +97,13 @@ To run the project locally:
 1. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    or
 
    ```bash
-   yarn start
+   yarn run dev
    ```
 
 2. Open your browser and navigate to:
@@ -127,3 +131,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+Made with :hearts:  By Himanshu :)
