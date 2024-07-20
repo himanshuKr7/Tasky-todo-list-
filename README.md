@@ -17,40 +17,37 @@ Tasky is a simple and efficient Todo application built with React. It allows use
 
 ```
 tasky/
+├── dist/
+├── node_modules/
 ├── public/
-│   ├── index.html
-│   ├── favicon.ico
-│   └── manifest.json
+│ ├── favicon.gif
+│ └── index.html
 ├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── TodoItem.js
-│   │   ├── TodoList.js
-│   │   ├── AddTodo.js
-│   │   ├── EditTodo.js
-│   │   ├── FilterTodos.js
-│   │   ├── SearchTodos.js
-│   │   ├── Login.js
-│   │   └── Signup.js
-│   ├── context/
-│   │   └── TodoContext.js
-│   ├── hooks/
-│   │   ├── useLocalStorage.js
-│   ├── pages/
-│   │   ├── HomePage.js
-│   │   └── AuthPage.js
-│   ├── App.js
-│   ├── index.js
-│   └── styles/
-│       ├── App.css
-│       ├── Header.css
-│       ├── TodoItem.css
-│       └── Auth.css
+│ ├── components/
+│ │ ├── AddTodo.css
+│ │ ├── AddTodo.jsx
+│ │ ├── Filter.css
+│ │ ├── Filter.jsx
+│ │ ├── Login.jsx
+│ │ ├── Signup.jsx
+│ │ ├── TodoCard.css
+│ │ ├── TodoCard.jsx
+│ │ ├── TodoList.css
+│ │ └── TodoList.jsx
+│ ├── App.css
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
+├── .eslintrc.cjs
 ├── .gitignore
+├── favicon.gif
+├── index.html
+├── package-lock.json
 ├── package.json
+├── postcss.config.js
 ├── README.md
-└── yarn.lock
-```
+├── tailwind.config.js
+└── vite.config.js
 
 ## Getting Started
 
@@ -127,6 +124,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-```
 
-Feel free to customize this `README.md` file further to match any additional specificities or preferences you have for your project.
