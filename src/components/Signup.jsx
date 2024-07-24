@@ -17,9 +17,12 @@ const Signup = ({ toggleSignup }) => {
       const newUser = { username, password };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
-      setSuccess('User registered successfully. You can now log in.');
+      setSuccess('User registered successfully. Directing to login...');
       setUsername('');
       setPassword('');
+      setTimeout(() => {
+        toggleSignup(); 
+      },1500); 
     }
   };
 
